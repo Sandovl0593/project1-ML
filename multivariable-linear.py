@@ -26,10 +26,10 @@ class LinearRegression:
         return (1/n) * np.dot(self.X.T, self.Hipotesis() - self.Y)
     
     def LassoDerivative(self):
-        return self.Derivative() + self._lambda * np.linalg.norm(self.W, 1)
+        return self.Derivative() + self._lambda * np.sum(np.abs(self.W)))
     
     def RidgeDerivative(self):
-        return self.Derivative() + 2 * self._lambda * (np.linalg.norm(self.W) ** 2)
+        return self.Derivative() + 2 * self._lambda * np.sum(self.W ** 2)
  
     def LassoUpdate(self):
         self.W = self.W - self.alpha * self.LassoDerivative()
