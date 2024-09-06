@@ -1,6 +1,6 @@
 import numpy as np
 
-class LinearRegression:
+class NoLinearRegression:
     def __init__(self, X, Y, alpha, _lambda):
         self._lambda = _lambda
         self.X: np.ndarray = X
@@ -26,7 +26,7 @@ class LinearRegression:
         return (1/n) * np.dot(self.X.T, self.Hipotesis() - self.Y)
     
     def LassoDerivative(self):
-        return self.Derivative() + self._lambda * np.sum(np.abs(self.W)))
+        return self.Derivative() + self._lambda * np.sum(np.abs(self.W))
     
     def RidgeDerivative(self):
         return self.Derivative() + 2 * self._lambda * np.sum(self.W ** 2)
@@ -44,4 +44,3 @@ class LinearRegression:
     def RidgeTrain(self, epochs):
         for _ in range(epochs):
             self.RidgeUpdate()
-    
