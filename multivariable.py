@@ -32,7 +32,7 @@ class NoLinearRegression:
     
     def RidgeDerivative(self):
         return self.Derivative() + 2 * (self._lambda * np.linalg.norm(self.W) ** 2)
- 
+
     def LassoUpdate(self):
         self.W = self.W - self.alpha * self.LassoDerivative()
 
